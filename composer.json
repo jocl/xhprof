@@ -1,5 +1,5 @@
 {
-    "name": "facebook/xhprof",
+    "name": "jocl/xhprof",
     "type": "library",
     "description": "XHProf: A Hierarchical Profiler for PHP",
     "keywords": ["profiling", "performance"],
