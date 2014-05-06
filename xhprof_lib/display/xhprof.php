@@ -58,25 +58,25 @@ $base_path = rtrim(dirname($_SERVER['SCRIPT_URL']), '/\\');
 function xhprof_include_js_css($ui_dir_url_path = null) {
 
   if (empty($ui_dir_url_path)) {
-    $ui_dir_url_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+    $ui_dir_url_path = '';
   }
 
   // style sheets
-  echo "<link href='$ui_dir_url_path/css/xhprof.css' rel='stylesheet' ".
+  echo "<link href='$ui_dir_url_path/css/css_mo/xhprof/xhprof.css' rel='stylesheet' ".
     " type='text/css' />";
-  echo "<link href='$ui_dir_url_path/jquery/jquery.tooltip.css' ".
+  echo "<link href='$ui_dir_url_path/css/css_mo/xhprof/jquery/jquery.tooltip.css' ".
     " rel='stylesheet' type='text/css' />";
-  echo "<link href='$ui_dir_url_path/jquery/jquery.autocomplete.css' ".
+  echo "<link href='$ui_dir_url_path/css/css_mo/xhprof/jquery/jquery.autocomplete.css' ".
     " rel='stylesheet' type='text/css' />";
 
   // javascript
-  echo "<script src='$ui_dir_url_path/jquery/jquery-1.2.6.js'>".
+  echo "<script src='$ui_dir_url_path/js/js_mo/xhprof/jquery/jquery-1.2.6.js'>".
        "</script>";
-  echo "<script src='$ui_dir_url_path/jquery/jquery.tooltip.js'>".
+  echo "<script src='$ui_dir_url_path/js/js_mo/xhprof/jquery/jquery.tooltip.js'>".
        "</script>";
-  echo "<script src='$ui_dir_url_path/jquery/jquery.autocomplete.js'>"
+  echo "<script src='$ui_dir_url_path/js/js_mo/xhprof/jquery/jquery.autocomplete.js'>"
        ."</script>";
-  echo "<script src='$ui_dir_url_path/js/xhprof_report.js'></script>";
+  echo "<script src='$ui_dir_url_path/js/js_mo/xhprof/xhprof_report.js'></script>";
 }
 
 
@@ -875,7 +875,7 @@ function full_report($url_params, $symbol_tab, $sort, $run1, $run2) {
 
   print("<center><br><h3>" .
         xhprof_render_link($callgraph_report_title,
-                    "$base_path/callgraph.php" . "?" . http_build_query($url_params))
+                    "$base_path/callgraph.html" . "?" . http_build_query($url_params))
         . "</h3></center>");
 
 
@@ -1142,7 +1142,7 @@ function symbol_report($url_params,
   print("<br><h4><center>");
   print("Parent/Child $regr_impr report for <b>$rep_symbol</b>");
 
-  $callgraph_href = "$base_path/callgraph.php?"
+  $callgraph_href = "$base_path/callgraph.html?"
     . http_build_query(xhprof_array_set($url_params, 'func', $rep_symbol));
 
   print(" <a href='$callgraph_href'>[View Callgraph $diff_text]</a><br>");
